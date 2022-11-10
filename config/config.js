@@ -12,6 +12,7 @@ if (CONFIG.app === "production") {
   CONFIG.db_name = "ordering_api";
   CONFIG.db_user = "postgres";
   CONFIG.db_password = "9334";
+  CONFIG.jwt_encryption = "jwt_please_change";
 }
 
 module.exports = CONFIG;
