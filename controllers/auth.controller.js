@@ -48,6 +48,24 @@ exports.addUser = async (req, res) => {
     );
   }
 
+  if (password.length < 8) {
+    return response.responseHelper(
+      res,
+      false,
+      "Password Length should be larger than of equal to 8",
+      "Failed to Add User"
+    );
+  }
+
+  if (phone.length < 10) {
+    return response.responseHelper(
+      res,
+      false,
+      "Invalid Phone Number",
+      "Failed to Add User"
+    );
+  }
+
   try {
     let result = await User.findOne({
       where: {
