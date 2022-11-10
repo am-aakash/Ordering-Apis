@@ -8,6 +8,12 @@ app.use("/", (req, res) => {
   res.send("Ordering API working");
 });
 
+// db sequelize
+const db = require("./models/index");
+// db.sequelize.sync({
+//   force: true,
+// });
+
 const CONFIG = require("./config/config");
 
 // Server
