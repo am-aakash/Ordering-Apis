@@ -23,8 +23,6 @@ generateLoginData = (user) => {
 
   var data = {
     accessToken: token,
-    name: user.name,
-    phone: user.phone,
   };
   return data;
 };
@@ -73,7 +71,10 @@ exports.addUser = async (req, res) => {
         return response.responseHelper(
           res,
           true,
-          generateLoginData(user),
+          {
+            user: user,
+            token: generateLoginData(user),
+          },
           "Sign Up successful"
         );
       }
@@ -126,7 +127,10 @@ exports.loginUser = async (req, res) => {
     return response.responseHelper(
       res,
       true,
-      generateLoginData(user),
+      {
+        user: user,
+        token: generateLoginData(user),
+      },
       "Login successful"
     );
   } catch (err) {
