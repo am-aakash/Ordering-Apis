@@ -7,7 +7,9 @@ app.use(bodyParser.json());
 const auth = require("./routes/auth.routes");
 app.use("/auth", auth);
 
-
+//Order Routes
+const order = require("./routes/order.routes");
+app.use("/order", order);
 
 // home route
 app.use("/", (req, res) => {
